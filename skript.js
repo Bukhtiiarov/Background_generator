@@ -1,14 +1,12 @@
-var css = document.querySelector("h3");
-var color1 = document.querySelector(".color1");
-var color2 = document.querySelector(".color2");
-var body = document.getElementById("gradient");
-var randomBtn = document.createElement("button");
-var colors = [];
+let css = document.querySelector("h3");
+let color1 = document.querySelector(".color1");
+let color2 = document.querySelector(".color2");
+let body = document.getElementById("gradient");
+let randomBtn = document.createElement("button");
+let colors = [];
 
-//2.
 setGradient();
 
-//1.
 function setGradient(){
 body.style.background = "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
 
@@ -16,29 +14,25 @@ css.textContent = body.style.background + ";";
 }
 
 function randomHex(){
-var length = 6;
-var chars = '0123456789ABCDEF';
-var hex = '#';
+let length = 6;
+let chars = '0123456789ABCDEF';
+let hex = '#';
 while(length--) hex += chars[(Math.random() * 16) | 0];
 return hex;
 }
 
 function randomGradient(){
-//push random colors to array
 colors.push(randomHex());
 colors.push(randomHex());
 
-//set gradient colors
 color1.value = colors[0];
 color2.value = colors[1];
 
 setGradient();
 
-//clear array
 colors = [];
 }
 
-//3.
 randomBtn.appendChild(document.createTextNode('Generate'));
 body.appendChild(randomBtn);
 
